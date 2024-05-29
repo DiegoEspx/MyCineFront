@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Películas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fondo blanco grisáceo */
+            color: #333; /* Texto en gris oscuro */
+            font-family: 'Arial', sans-serif;
+        }
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #007bff; /* Azul Bootstrap */
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .table-container {
+            background-color: #ffffff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+        .table th {
+            background-color: #007bff; /* Azul Bootstrap */
+            color: #ffffff; /* Texto blanco */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .table tbody tr {
+            transition: background-color 0.3s ease;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1; /* Fondo gris claro al pasar el cursor */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Azul Bootstrap */
+            border-color: #0056b3; /* Azul más oscuro */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+            border-color: #004085; /* Azul más oscuro */
+        }
+        .btn-primary:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Sombra azul */
+        }
+        .container-fluid {
+            margin-top: 40px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .table td button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <h3 ><strong>Lista de Películas</strong></h3>
+    <div class="col-12 table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre de Película</th>
+                    <th>Duración</th>
+                    <th>Género</th>
+                    <th>Fecha de Estreno</th>
+                    <th>País</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of peliculas">
+                    <td>{{p.nombrePelicula}}</td>
+                    <td>{{p.duracion}}</td>
+                    <td>{{p.genero}}</td>
+                    <td>{{p.fechaEstreno}}</td>
+                    <td>{{p.pais}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" 
+                                (click)="editarPelicula(p.id)" title="Editar">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
